@@ -1,1 +1,1 @@
-angular.module('app.services', ['ngAnimate']);
+angular.module('app.services', ['ngAnimate','LocalStorageModule']);
