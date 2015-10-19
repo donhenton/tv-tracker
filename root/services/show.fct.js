@@ -7,7 +7,8 @@ angular
 function dataService($http, API_KEY, BASE_URL, $log) {
     var data = {
         'get': get,
-        'search': search
+        'search': search,
+        'getSeason': getSeason
     };
     function makeRequest(url, params) {
         var requestUrl = BASE_URL + '/' + url + '?api_key=' + API_KEY;
@@ -25,19 +26,17 @@ function dataService($http, API_KEY, BASE_URL, $log) {
             return response.data;
         }).catch(dataServiceError);
     }
-
     function get(id) {
         return makeRequest('tv/' + id, {});
     }
-    
-    function search(query)
-    {
-        return makeRequest("search/tv",{"query": query}).then(function(data)
-        {
+    function search(query) {
+        return makeRequest('search/tv', {query: query}).then(function(data){
             return data.results;
         });
     }
-
+    function getSeason(showId, seasonNumber) {
+        return makeRequest('tv/' + showId + '/season/' + seasonNumber, {});
+    }
     return data;
 
     function dataServiceError(errorResponse) {
