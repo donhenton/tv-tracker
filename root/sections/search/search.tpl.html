@@ -1,6 +1,8 @@
 <div id="search-page">
     <h1>Find you favorite shows...</h1>
-    <input type="text" name="query" ng-model="query" class="query" />
+    <input type="text" name="query" ng-model="query" class="query" 
+           uib-typeahead="show for show in search.typeahead($viewValue)"
+           typeahead-on-select="search.query($item)"  />
     <div class="controls">
         <p class="loading-msg" ng-show="search.searching">Performing search...</p>
         <button class="query-btn" ng-click="search.query(query)">Search</button>

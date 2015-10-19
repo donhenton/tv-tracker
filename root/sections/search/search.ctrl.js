@@ -1,4 +1,4 @@
-angular.module('app.core').controller('SearchController', function (ShowService, $timeout,StoreFactory) {
+angular.module('app.core').controller('SearchController', function (ShowService, $timeout, StoreFactory) {
     var vm = this;
     vm.results = false;
     vm.searching = false;
@@ -8,7 +8,7 @@ angular.module('app.core').controller('SearchController', function (ShowService,
         vm.searching = true;
         ShowService.search(query).then(function (response)
         {
-            //console.log("response is "+angular.fromJson(response));
+            //console.log(" called "+ query );
             vm.results = response;
             $timeout(function ()
             {
@@ -18,7 +18,13 @@ angular.module('app.core').controller('SearchController', function (ShowService,
         {
             console.log("error " + error);
         });
-    }
-   
+    };
+    vm.typeahead = function (query) {
+        return ShowService.search(query).then(function (response) {
+            return response.map(function (show) {
+                return show.name;
+            });
+        });
+    };
 
 });
