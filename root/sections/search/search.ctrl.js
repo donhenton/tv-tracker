@@ -19,16 +19,6 @@ angular.module('app.core').controller('SearchController', function (ShowService,
             console.log("error " + error);
         });
     }
-    vm.trackShow = function (show) {
-        StoreFactory.addShow(show);
-    };
-
-    vm.unTrackShow = function (id) {
-        StoreFactory.removeShow(id);
-    };
-
-    vm.hasShow = function (id) {
-        return (StoreFactory.getShow(id) !== false);
-    };
+   
 
 });

@@ -10,19 +10,7 @@
     <ul class="dots"><li></li><li></li><li></li></ul>
     <ul class="query-results row">
         <li class="show col-sm-6" ng-repeat="show in search.results track by show.id">
-            <div class="inner">
-                <h2>{{show.name}} <span class="first-air">{{show.first_air_date}}</span></h2>
-                <div class="show-image">
-                    <img ng-src="http://image.tmdb.org/t/p/w780{{show.poster_path}}" />
-                </div>
-                <div class="show-content" ng-switch="search.hasShow(show.id)">
-                    {{show.vote_average}}<br />
-                    <span class="num-votes">From {{show.vote_count}} votes.</span>
-                    <button ng-switch-when="false" class="track-btn" ng-click="search.trackShow(show)">Track Show</button>
-                    <button ng-switch-when="true" class="track-btn untrack" ng-click="search.unTrackShow(show.id)">Untrack Show</button>
-                </div>
-                <div class="clearfix"></div>
-            </div>
+            <show-overview show="show"></show-overview>
         </li>
         <li class="no-data" ng-if="search.results === false">Find shows to track by using the search bar above.</li>
         <li class="no-data" ng-if="search.results.length == 0">Your search did not return any results, try again.</li>
