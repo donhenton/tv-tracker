@@ -6,7 +6,8 @@ angular
 
 function dataService($http, API_KEY, BASE_URL, $log) {
     var data = {
-        'get': get
+        'get': get,
+        'search': search
     };
     function makeRequest(url, params) {
         var requestUrl = BASE_URL + '/' + url + '?api_key=' + API_KEY;
@@ -27,6 +28,14 @@ function dataService($http, API_KEY, BASE_URL, $log) {
 
     function get(id) {
         return makeRequest('tv/' + id, {});
+    }
+    
+    function search(query)
+    {
+        return makeRequest("search/tv",{"query": query}).then(function(data)
+        {
+            return data.results;
+        });
     }
 
     return data;
