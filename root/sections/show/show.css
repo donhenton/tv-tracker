@@ -95,3 +95,77 @@
 .show-container .content .list-container ul li .controls {
     text-align: right;
 }
+.show-container .form-group {
+    padding-bottom: 20px;
+    position: relative;
+}
+.show-container .form-group .input-error {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.show-container .form-group .input-error .message {
+    text-align: center;
+    color: #e74536;
+}
+/* danden.github.io/animate.css */
+@keyframes bounceIn {
+    0%, 20%, 40%, 60%, 80%, 100% {
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+
+    0% {
+        opacity: 0;
+        transform: scale3d(.3, .3, .3);
+    }
+
+    20% {
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+
+    40% {
+        transform: scale3d(.9, .9, .9);
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale3d(1.03, 1.03, 1.03);
+    }
+
+    80% {
+        transform: scale3d(.97, .97, .97);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes bounceOut {
+    20% {
+        transform: scale3d(.9, .9, .9);
+    }
+
+    50%, 55% {
+        opacity: 1;
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale3d(.3, .3, .3);
+    }
+}
+
+.show-container .form-group .input-error .message.ng-enter {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    animation-name: bounceIn;
+}
+
+.show-container .form-group .input-error .message.ng-leave {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    animation-name: bounceOut;
+}
