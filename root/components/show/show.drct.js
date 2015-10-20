@@ -10,7 +10,12 @@ angular.module('app.core').directive('showOverview', function (StoreFactory)
     var v =
             {"templateUrl": "components/show/show.tpl.html",
                 "restict": "E",
-                "scope": {"show": "="},
+                //these are var <-> directionality
+                "scope": {"show": "=", "showRating": '=', "showDiary": '='
+
+
+
+                },
                 "controller": function ($scope)
                 {
                     $scope.trackShow = function (show) {
@@ -24,7 +29,7 @@ angular.module('app.core').directive('showOverview', function (StoreFactory)
                     $scope.hasShow = function (id) {
                         return (StoreFactory.getShow(id) !== false);
                     };
-               }
+                }
             };
     return v;
 });

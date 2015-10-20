@@ -1,34 +1,21 @@
-
-.query-results {
-    margin: 30px 0;
-    padding: 0;
-    list-style: none;
-}
-.query-results li.no-data {
-    font-size: 18px;
-    text-align: center;
-    color: #177199;
-    font-weight: 300;
-    line-height: 100px;
-}
-.query-results li.show {
+.show-overview {
     margin-bottom: 20px;
 }
-.query-results li.show .inner {
+.show-overview .inner {
     background-color: #F1F1F1;
     padding: 20px;
     box-shadow: 1px 1px 2px #E1E1E1;
 }
-.query-results li .show-image {
+.show-overview .show-image {
     width: 150px;
     height: 200px;
     float: left;
 }
-.query-results li .show-image img {
+.show-overview .show-image img {
     max-width: 100%;
     max-height: 100%;
 }
-.query-results li.show h2 {
+.show-overview h2 {
     margin: 0 0 10px 0;
     color: #177199;
     text-shadow: 1px 1px 0 #478999;
@@ -38,23 +25,23 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.query-results li.show h2 .first-air {
+.show-overview h2 .first-air {
     color: #999;
     text-shadow: none;
     font-size: 16px;
 }
-.query-results li.show .show-content {
+.show-overview .show-content {
     font-size: 80px;
     color: #177199;
     text-shadow: 1px 1px 0 #478999;
     text-align: center;
     line-height: 30px;
-    padding: 30px 0 0 0;
+    padding: 10px 0 0 0;
 }
-.query-results li.show .show-content .num-votes {
+.show-overview .show-content .num-votes {
     font-size: 16px;
 }
-.query-results li.show .show-content .track-btn {
+.show-overview .show-content .track-btn {
     font-size: 18px;
     display: block;
     margin: 20px auto;
@@ -67,9 +54,33 @@
     padding: 0 10px;
     line-height: 40px;
 }
-.query-results li.show .show-content .track-btn.untrack {
+.show-overview .show-content .track-btn.untrack {
     background: #e74536;
     color: #fdfdfd;
     border-bottom: 3px solid #ba382c;
     text-shadow: 0 -1px 0 #8a3030;
+}
+.show-overview .rating-container {
+    margin-top: 10px;
+    font-size: 32px;
+    color: #fcd400;
+    text-shadow: 1px 1px 0 #ccab00;
+}
+.show-overview .diary-btn {
+    position: absolute;
+    right: 15px;
+    top: 0;
+    display: block;
+    font-size: 18px;
+    background-color: #CCC;
+    padding: 10px;
+    border-radius: 0 0 0 5px;
+    color: #999;
+}
+.show-overview .diary-btn .count {
+    position: absolute;
+    bottom: -30px;
+    font-size: 22px;
+    width: 20px;
+    text-align: center;
 }
