@@ -29,9 +29,9 @@ function dataService($http, API_KEY, BASE_URL, $log) {
     function get(id) {
         return makeRequest('tv/' + id, {});
     }
-    function search(query) {
-        return makeRequest('search/tv', {query: query}).then(function(data){
-            return data.results;
+    function search(query,page) {
+        return makeRequest('search/tv', {query: query,page:page}).then(function(data){
+            return data;
         });
     }
     function getSeason(showId, seasonNumber) {

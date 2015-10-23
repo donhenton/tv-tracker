@@ -1,30 +1,24 @@
-angular.module('app.core').controller('SearchController', function (ShowService, $timeout, StoreFactory) {
+angular.module('app.core').controller('SearchController', function(ShowService, $timeout){
     var vm = this;
     vm.results = false;
     vm.searching = false;
-
-    vm.query = function (query)
-    {
+    vm.currentPage = 1;
+    vm.totalResults = 0;
+    vm.query = function(query) {
         vm.searching = true;
-        ShowService.search(query).then(function (response)
-        {
-            //console.log(" called "+ query );
-            vm.results = response;
-            $timeout(function ()
-            {
+        ShowService.search(query, vm.currentPage).then(function(response){
+            vm.results = response.results;
+            vm.totalResults = response.total_results;
+            $timeout(function(){
                 vm.searching = false;
-            }, 500)
-        }).catch(function (error)
-        {
-            console.log("error " + error);
+            }, 500);
         });
     };
-    vm.typeahead = function (query) {
-        return ShowService.search(query).then(function (response) {
-            return response.map(function (show) {
+    vm.typeahead = function(query) {
+        return ShowService.search(query, 1).then(function(response){
+            return response.results.map(function(show){
                 return show.name;
             });
         });
     };
-
 });

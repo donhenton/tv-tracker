@@ -17,6 +17,11 @@
         <li class="no-data" ng-if="search.results === false">Find shows to track by using the search bar above.</li>
         <li class="no-data" ng-if="search.results.length == 0">Your search did not return any results, try again.</li>
     </ul>
+    
+    <div class="pagination-container">
+        <uib-pagination total-items="search.totalResults" ng-model="search.currentPage" items-per-page="20" ng-change="search.query(query)"></uib-pagination>
+    </div>
+    
     <ul class="dots bottom"><li></li><li></li><li></li></ul>
     
     
